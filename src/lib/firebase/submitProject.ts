@@ -1,0 +1,2 @@
+// lib/firebase/submitProject.tsimport { doc, setDoc, Timestamp } from 'firebase/firestore';import { db } from './firebasConfig';
+export const submitProjectProgress = async ({  userId,  projectId,  status,  submissionUrl,}: {  userId: string;  projectId: string;  status: 'not_started' | 'in_progress' | 'submitted';  submissionUrl?: string;}) => {  const docRef = doc(db, `users/${userId}/projects/${projectId}`);  await setDoc(docRef, {    status,    submissionUrl: submissionUrl || '',    updatedAt: Timestamp.now(),  }, { merge: true });};
