@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { db } from "@/lib/firebase";
+import { db } from "@/lib/firebase/firebaseConfig";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 
 export default function EditLessonPage() {

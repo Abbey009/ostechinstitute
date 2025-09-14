@@ -1,6 +1,6 @@
 // admin/courses/[courseId]/add-lesson/page.tsx
 "use client";
-import { useState } from "react";import { useRouter, useParams } from "next/navigation";import { db } from "@/lib/firebase";import { collection, addDoc } from "firebase/firestore";import { Input } from "@/components/ui/input";import { Button } from "@/components/ui/button";import { Textarea } from "@/components/ui/textarea";import { Label } from "@/components/ui/label";
+import { useState } from "react";import { useRouter, useParams } from "next/navigation";import { db } from "@/lib/firebase/firebaseConfig";import { collection, addDoc } from "firebase/firestore";import { Input } from "@/components/ui/input";import { Button } from "@/components/ui/button";import { Textarea } from "@/components/ui/textarea";import { Label } from "@/components/ui/label";
 export default function AddLessonPage() {  const { courseId } = useParams();  const router = useRouter();
   const [title, setTitle] = useState("");  const [videoUrl, setVideoUrl] = useState("");  const [duration, setDuration] = useState("");  const [resources, setResources] = useState("");  const [loading, setLoading] = useState(false);
   const handleSubmit = async (e: React.FormEvent) => {    e.preventDefault();    if (!title || !videoUrl || !duration) return alert("Fill all required fields");
